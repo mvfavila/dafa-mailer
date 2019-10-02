@@ -26,3 +26,7 @@ Serverless npm package should be installed globally
 If the configuration above has already been completed, the only thing you need to do to deploy to the dev/qa/prod environment is:<br/>
 
 > npm run deploy
+
+## Disabling Lambda Function
+
+Set the function to `enabled: false` in `serverless.yml` and redeploy
