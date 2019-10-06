@@ -13,6 +13,7 @@ provider:
 plugins:
   - serverless-offline
   - serverless-api-gateway-caching
+  - serverless-offline-scheduler
 
 # you can overwrite defaults here
 #  stage: dev

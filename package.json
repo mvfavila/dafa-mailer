@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "serverless offline start --skipCacheInvalidation --stage dev",
-    "debug": "SET SLS_DEBUG=* && node --inspect ./node_modules/serverless/bin/serverless offline --skipCacheInvalidation -s dev --stage dev",
+    "debug": "SET SLS_DEBUG=* && node --inspect ./node_modules/serverless/bin/serverless offline start --skipCacheInvalidation -s dev --stage dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "serverless deploy",
     "log": "serverless logs --function mailer --tail"
@@ -21,7 +21,8 @@
     "eslint-plugin-prettier": "^3.1.1",
     "prettier": "1.18.2",
     "serverless": "^1.53.0",
-    "serverless-offline": "^5.12.0"
+    "serverless-offline": "^5.12.0",
+    "serverless-offline-scheduler": "^0.3.8"
   },
   "dependencies": {
     "serverless-api-gateway-caching": "^1.4.0",
