@@ -6,8 +6,8 @@
   "scripts": {
     "start": "serverless offline start --skipCacheInvalidation --stage dev",
     "debug": "SET SLS_DEBUG=* && node --inspect ./node_modules/serverless/bin/serverless offline start --skipCacheInvalidation -s dev --stage dev",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "serverless deploy",
+    "test": "echo \"Error: no test specified\" && exit 1 --stage dev",
+    "deploy": "serverless deploy --stage dev",
     "log": "serverless logs --function mailer --tail"
   },
   "keywords": [],
@@ -25,6 +25,13 @@
     "serverless-offline-scheduler": "^0.3.8"
   },
   "dependencies": {
+    "compression": "^1.7.4",
+    "connect-mongodb-session": "^2.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "log-to-file": "^2.0.1",
+    "mongoose": "^5.7.3",
+    "mongoose-unique-validator": "^2.0.3",
     "serverless-api-gateway-caching": "^1.4.0",
     "serverless-http": "^2.3.0"
   }
