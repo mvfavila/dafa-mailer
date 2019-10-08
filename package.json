@@ -4,10 +4,10 @@
   "description": "Dafa service responsible for creating Event Warnings and sending warning e-mails",
   "main": "index.js",
   "scripts": {
-    "start": "serverless offline start --skipCacheInvalidation --stage dev",
-    "debug": "SET SLS_DEBUG=* && node --inspect ./node_modules/serverless/bin/serverless offline start --skipCacheInvalidation -s dev --stage dev",
-    "test": "echo \"Error: no test specified\" && exit 1 --stage dev",
-    "deploy": "serverless deploy --stage dev",
+    "start": "SET NODE_ENV=dev && serverless offline start --skipCacheInvalidation --stage dev",
+    "debug": "SET NODE_ENV=dev && SET SLS_DEBUG=* && node --inspect ./node_modules/serverless/bin/serverless offline start --skipCacheInvalidation -s dev --stage dev",
+    "test": "SET NODE_ENV=dev && echo \"Error: no test specified\" && exit 1 --stage dev",
+    "deploy": "SET NODE_ENV=dev && serverless deploy --stage dev",
     "log": "serverless logs --function mailer --tail"
   },
   "keywords": [],

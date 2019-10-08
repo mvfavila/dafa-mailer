@@ -22,15 +22,16 @@
 
 const mongoose = require("mongoose");
 const bootstrap = require("./src/config/bootstrap");
+const log = require("./src/util/log");
 
 module.exports.mailer = async (event, context) => {
-  console.log(`Starting ${Date.now()}`);
+  log.info(`Starting ${new Date()}`);
 
   await bootstrap.init();
 
   await runPromise();
 
-  console.log(`Finishing ${Date.now()}`);
+  log.info(`Finishing ${new Date()}`);
 };
 
 async function runPromise() {
@@ -44,7 +45,7 @@ async function runPromise() {
 
       resolve(doc);
     } catch (error) {
-      console.log(`Error caught: ${JSON.stringify(error)}`);
+      log.info(`Error caught: ${JSON.stringify(error)}`);
       reject(error);
     }
   });

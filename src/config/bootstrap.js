@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
+const environment = require("./environment/environment");
 
-const connectionString = process.env.MONGODB_URI;
 const options = {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -10,6 +10,9 @@ const options = {
 
 const bootstrap = {
   init: async function() {
+    environment.load();
+    const connectionString = process.env.MONGODB_URI;
+
     await mongoose.connect(connectionString, options);
     const modelNames = mongoose.modelNames();
     if (modelNames.indexOf("Client") === -1) {
