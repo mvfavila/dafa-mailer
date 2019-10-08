@@ -29,21 +29,22 @@ module.exports.mailer = async (event, context) => {
 
   await bootstrap.init();
 
-  await runPromise();
+  await run();
+
+  bootstrap.teardown();
 
   log.info(`Finishing ${new Date()}`);
 };
 
-async function runPromise() {
+async function run() {
   return new Promise(async (resolve, reject) => {
     try {
-      const M = mongoose.model("Client");
+      const Client = mongoose.model("Client");
 
-      const doc = await M.find();
-      console.log(`Result: ${JSON.stringify(doc)}`);
-      bootstrap.teardown();
+      const clients = await Client.find();
+      console.log(`Result: ${JSON.stringify(clients)}`);
 
-      resolve(doc);
+      resolve(clients);
     } catch (error) {
       log.info(`Error caught: ${JSON.stringify(error)}`);
       reject(error);
